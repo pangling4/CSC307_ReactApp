@@ -34,13 +34,15 @@ function MyApp() {
        console.log(error);
        return false;
     }
- }
+  }
 
-  function removeOneCharacter (index) {
+  async function removeOneCharacter (index) {
     const updated = characters.filter((character, i) => {
         return i !== index
       });
-      setCharacters(updated);
+    setCharacters(updated);
+    const id = characters.filter((character, i)=>{return i == index})[0]["id"];
+    await axios.delete('http://localhost:5000/users/'+ String(id));
   }
 
   function updateList(person) {
