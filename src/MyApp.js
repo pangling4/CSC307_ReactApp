@@ -41,7 +41,7 @@ function MyApp() {
         return i !== index
       });
     setCharacters(updated);
-    const id = characters.filter((character, i)=>{return i == index})[0]["id"];
+    const id = characters.filter((character, i)=>{return i === index})[0]["id"];
     await axios.delete('http://localhost:5000/users/'+ String(id));
   }
 
